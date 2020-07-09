@@ -24,14 +24,14 @@ class VerificationController extends Controller
     /**
      * Where to redirect users after verification.
      *
-     * @var string
+     *  string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
      *
-     * @return void
+     *  void
      */
     public function __construct()
     {
