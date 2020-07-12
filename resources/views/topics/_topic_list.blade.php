@@ -47,5 +47,5 @@
   </ul>
 
 @else
-  <div class="empty-block">暂无数据 ~_~ </div>
+  <div class="empty-block">0000 ~_~ </div>
 @endif
