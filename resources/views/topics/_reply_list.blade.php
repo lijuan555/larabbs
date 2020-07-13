@@ -1,5 +1,5 @@
 <ul class="list-unstyled">
-  @foreach ($topics as $index => $reply)
+  @foreach ($replies as $index => $reply)
     <li class=" media" name="reply{{ $reply->id }}" id="reply{{ $reply->id }}">
       <div class="media-left">
         <a href="{{ route('users.show', [$reply->user_id]) }}">
