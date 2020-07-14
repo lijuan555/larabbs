@@ -15,23 +15,7 @@ class RepliesController extends Controller
         $this->middleware('auth');
     }
 
-	public function index()
-	{
-		$replies = Reply::paginate();
-		return view('replies.index', compact('replies'));
-	}
-
-    public function show(Reply $reply)
-    {
-        return view('replies.show', compact('reply'));
-    }
-
-	public function create(Reply $reply)
-	{
-		return view('replies.create_and_edit', compact('reply'));
-	}
-
-	public function store(ReplyRequest $request, Reply $reply)
+    public function store(ReplyRequest $request, Reply $reply)
     {
         $reply->content = $request->content;
         $reply->user_id = Auth::id();
@@ -41,21 +25,7 @@ class RepliesController extends Controller
         return redirect()->to($reply->topic->link())->with('success', '评论创建成功！');
     }
 
-	public function edit(Reply $reply)
-	{
-        $this->authorize('update', $reply);
-		return view('replies.create_and_edit', compact('reply'));
-	}
-
-	public function update(ReplyRequest $request, Reply $reply)
-	{
-		$this->authorize('update', $reply);
-		$reply->update($request->all());
-
-		return redirect()->route('replies.show', $reply->id)->with('message', 'Updated successfully.');
-	}
-
-	public function destroy(Reply $reply)
+    public function destroy(Reply $reply)
     {
         $this->authorize('destroy', $reply);
         $reply->delete();
